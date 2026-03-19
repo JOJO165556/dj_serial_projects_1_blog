@@ -1,3 +1,4 @@
+# urls de l'api rest (posts, comments, tags)
 from rest_framework.routers import DefaultRouter
 from api.views.post_views import PostViewSet
 from api.views.comment_views import CommentViewSet

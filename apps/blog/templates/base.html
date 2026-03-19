@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Mon Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}" />
+  </head>
+  <body>
+    <!-- Zone utilisateur en haut à droite de l'écran -->
+    <div class="auth-controls">
+      {% if user.is_authenticated %}
+        <span class="user-greeting">Bonjour {{ user.username }}</span>
+        <form action="{% url 'logout' %}" method="post" class="logout-form" onsubmit="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');">
+          {% csrf_token %}
+          <button type="submit">Déconnexion</button>
+        </form>
+      {% endif %}
+    </div>
+
+    <!-- Header principal centré -->
+    <header>
+      <h1><a href="{% url 'home' %}">Mon Blog</a></h1>
+    </header>
+    <!-- contenu de la page -->
+    <main>{% block content %}{% endblock content %}</main>
+
+    <footer>
+      <p>&copy;2026 Mon Blog</p>
+    </footer>
+  </body>
+</html>

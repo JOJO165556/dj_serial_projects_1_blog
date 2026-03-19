@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Tous les posts{% endblock title %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h2>Tous les posts</h2>
+<p><a href="{% url 'post_create' %}">+ Créer un post</a></p>
+
+<!-- boucle sur les posts -->
+{% for post in posts %}
+<article>
+  <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+  <p>{{ post.content|truncatechars:150 }}</p>
+  <!-- tags du post -->
+  <p>
+    {% for tag in post.tags.all %}
+    <a href="{% url 'posts_by_tag' tag.id %}">#{{ tag.name }}</a>
+    {% endfor %}
+  </p>
+</article>
+{% empty %}
+<p>Aucun post pour l'instant.</p>
+{% endfor %}
+
+{% else %}
+<p>
+  Vous devez être connecté pour voir les posts.
+  <a href="{% url 'login' %}">Se connecter</a> ou revenir à
+  <a href="{% url 'home' %}">l'accueil</a>.
+</p>
+{% endif %}
+{% endblock content %}

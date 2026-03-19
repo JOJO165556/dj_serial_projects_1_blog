@@ -1,0 +1,290 @@
+/* variables globales */
+:root {
+    --main-color: #0c155c;
+    --hover-color: #4231d9;
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --footer-color: #777;
+    --font: Arial, sans-serif;
+}
+
+/* reset et structure */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+main {
+    flex: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Zone utilisateur (coin superieur droit) */
+.auth-controls {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* header principal (boîte grise centrée) */
+header {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: 40px auto 30px;
+}
+
+header h1 a {
+    color: #333;
+    text-decoration: none;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+header button:hover {
+    background-color: var(--hover-color);
+}
+
+/* hero */
+.hero {
+    background-color: #eef2f5;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.hero .btn-primary, .hero .btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.hero .btn-primary {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.hero .btn-primary:hover {
+    background-color: var(--hover-color);
+}
+
+.hero .btn-secondary {
+    background-color: white;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+.hero .btn-secondary:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+.user-greeting {
+    font-weight: bold;
+}
+
+.logout-form {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    display: inline;
+    gap: 0;
+    max-width: none;
+}
+
+.logout-form button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.logout-form button:hover {
+    background-color: #c82333;
+}
+
+/* lien de retour */
+.back-link-container {
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+    background-color: #ced4da;
+    color: #333;
+}
+
+/* articles / posts */
+article {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+article h3 a, article h4 a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+article h3 a:hover, article h4 a:hover {
+    color: var(--main-color);
+}
+
+article p {
+    margin: 10px 0;
+    color: #555;
+}
+
+article p a {
+    color: var(--main-color);
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+article p a:hover {
+    text-decoration: underline;
+}
+
+/* apercu des derniers posts sur la home */
+.latest-posts h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* formulaires */
+form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* checkboxes des tags */
+form ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+form ul li {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+form ul li label {
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: var(--hover-color);
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--footer-color);
+    font-size: 0.9em;
+    background-color: #f1f1f1;
+    margin-top: auto;
+}

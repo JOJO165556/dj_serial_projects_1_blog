@@ -1,3 +1,4 @@
+# modele Post
 from django.db import models
 
 class Post(models.Model):

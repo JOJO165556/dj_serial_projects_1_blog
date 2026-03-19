@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Bienvenue sur Mon Blog{% endblock title %}
+
+{% block content %}
+<!-- section hero avec boutons d'action -->
+<section class="hero">
+    <h2>Bienvenue sur Mon Blog !</h2>
+    <p>Partagez vos idées, découvrez des articles intéressants et rejoignez notre communauté.</p>
+    {% if user.is_authenticated %}
+        <a href="{% url 'post_list' %}" class="btn-primary">Voir les posts</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn-primary">Se connecter</a>
+        <a href="{% url 'register' %}" class="btn-secondary">S'inscrire</a>
+    {% endif %}
+</section>
+
+<!-- apercu des 3 derniers posts -->
+{% if user.is_authenticated and posts %}
+<section class="latest-posts">
+    <h3>Derniers posts</h3>
+    {% for post in posts %}
+        <article>
+            <h4><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h4>
+            <p>{{ post.content|truncatechars:150 }}</p>
+        </article>
+    {% empty %}
+        <p>Aucun post pour l'instant.</p>
+    {% endfor %}
+</section>
+{% endif %}
+{% endblock content %}

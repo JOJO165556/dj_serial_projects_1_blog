@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Posts avec le tag #{{ tag.name }}{% endblock title %}
+
+{% block content %}
+<!-- posts filtres par tag -->
+<h2>Posts avec le tag #{{ tag.name }}</h2>
+
+{% for post in posts %}
+<article>
+  <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+  <p>{{ post.content|truncatechars:150 }}</p>
+</article>
+{% empty %}
+<p>Aucun post pour ce tag.</p>
+{% endfor %}
+{% endblock content %}

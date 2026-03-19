@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if form.instance.pk %}Modifier un post{% else %}Créer un post{% endif %}
+{% endblock title %}
+
+{% block content %}
+<!-- titre dynamique selon creation ou modification -->
+<h2>
+    {% if form.instance.pk %}Modifier{% else %}Créer{% endif %} un post
+</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">
+        {% if form.instance.pk %}Mettre à jour{% else %}Publier{% endif %}
+    </button>
+</form>
+
+{% endblock content %}

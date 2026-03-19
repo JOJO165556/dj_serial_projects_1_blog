@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Inscription{% endblock title %}
+
+{% block content %}
+<h2>Inscription</h2>
+
+<!-- formulaire d'inscription -->
+<form method="post">
+    {% csrf_token %}
+    
+    <div>
+        {{ form.username.label_tag }}
+        {{ form.username }}
+    </div>
+
+    <div>
+        {{ form.email.label_tag }}
+        {{ form.email }}
+    </div>
+
+    <div>
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+    </div>
+
+    <div>
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+    </div>
+
+    <button type="submit">Créer un compte</button>
+</form>
+
+<p>Déjà un compte ? <a href="{% url 'login' %}">Connectez-vous</a></p>
+{% endblock %}

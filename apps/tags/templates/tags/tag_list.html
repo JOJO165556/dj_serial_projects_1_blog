@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Tous les tags{% endblock title %}
+
+{% block content %}
+<!-- liste de tous les tags -->
+<h2>Tous les tags</h2>
+
+{% for tag in tags %}
+  <a href="{% url 'posts_by_tag' tag.id %}">#{{ tag.name }}</a>
+{% empty %}
+  <p>Aucun tag pour l'instant.</p>
+{% endfor %}
+{% endblock content %}
